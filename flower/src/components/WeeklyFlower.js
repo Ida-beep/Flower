@@ -19,12 +19,12 @@ function WeeklyFlower(){
 
     useEffect(()=>{
         fetchPetals().then(()=>{
-            console.log(petals);
+            console.log("petals are: ",petals);
         });
     },[]);
 
     function getThisWeek(){
-        let curr = new Date;
+        let curr = new Date();
         let week = [];
         for (let i = 1; i <= 7; i++) {
             let first = curr.getDate() - curr.getDay() + i;
@@ -32,7 +32,7 @@ function WeeklyFlower(){
             week.push(day);
         }
         setCurrentWeek(week);
-        //console.log(currentWeek);
+        console.log("current week is: ",currentWeek);
     }
 
     async function fetchPetals(){
@@ -48,11 +48,17 @@ function WeeklyFlower(){
     }
     
     return(
-        <div style={container}>
-            <p>WeeklyFlower</p>
-            <Circle/>
-            <p>{currentWeek}</p>
-        </div>
+    <div style={container}>
+        <p>WeeklyFlower</p>
+        <Circle zIndex={"0"} width={"300px"} height={"300px"}/>
+        <Circle marginBottom={"24%"} marginLeft={"20%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+        <Circle marginLeft={"30%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+        <Circle marginTop={"20%"} marginLeft={"23%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+        <Circle marginTop={"31%"}  zIndex={"10"} width={"30px"} height={"30px"}/>
+        <Circle marginTop={"22%"} marginRight={"22%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+        <Circle marginRight={"31%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+        <Circle marginRight={"20%"} marginBottom={"24%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+    </div>
     );
 }
 
