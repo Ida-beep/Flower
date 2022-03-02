@@ -1,14 +1,20 @@
 import React from 'react';
 
-function Circle(){
-    const cicle = {
-        display:"flex",
-        width:"300px",
-        height:"300px",
-        border:"solid black 1px",
-        borderRadius:"50%",
-        margin:"20px",
-    }
+function Circle(props){
+        const cicle = {
+            display:"flex",
+            width:props.width,
+            height:props.height,
+            border:"solid black 1px",
+            borderRadius:"50%",
+            margin:props.margin,
+            zIndex:props.zIndex,
+            position:"absolute",
+            marginLeft:props.marginLeft,
+            marginRight:props.marginRight,
+            marginTop:props.marginTop,
+            marginBottom:props.marginBottom,
+        }
     
     return(
         <>
