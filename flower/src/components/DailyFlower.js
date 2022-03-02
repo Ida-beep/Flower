@@ -13,7 +13,8 @@ import Button from 'react-bootstrap/Button';
 function DailyFlower(){
     const current = new Date();
     //const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-    const date = `${0 + current.getDate().slide(-2)}/${0 + current.getMonth()+1}/${current.getFullYear()}`;
+    const [date,setDate] = useState();
+    //const date = `${0 + current.getDate().slice(-2)}/${0 + (current.getMonth()+1).slice(-2)}/${current.getFullYear()}`;
     const [showColors,setShowColors] = useState(false);
     const [showShape,setShowShape] = useState(false);
     const [showText,setShowText] = useState(false);
@@ -29,7 +30,9 @@ function DailyFlower(){
      * This useEffect get the current flower of today saved in localStorage
      */
     useEffect(()=>{
+        determineDate();
         let todaysFlower = localStorage.getItem(date);
+        //console.log(date);
         if(todaysFlower!==null){
             let petalData = todaysFlower.split('%');
             setChosenColor(petalData[0]);
@@ -39,6 +42,21 @@ function DailyFlower(){
             setChosenText(petalData[4]);
         }
     },[])
+
+    function determineDate(){
+        let tempDate;
+        let tempDay = current.getDate();
+        let tempMonth = current.getMonth()+1;
+        if(tempDay<10){
+            tempDay = `0${tempDay}`;
+        }
+        if(tempMonth<10){
+            tempMonth = `0${tempMonth}`;
+        }
+        tempDate = `${tempDay}/${tempMonth}/${current.getFullYear()}`;
+        console.log(tempDate);
+        setDate(tempDate);
+    }
 
     function handleColor(){
         setShowColors(!showColors);
