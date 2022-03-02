@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import { ChromePicker } from 'react-color';
 import Petal from './Petal';
-import Button from 'react-bootstrap/Button';
 import RangeSlider from 'react-bootstrap-range-slider';
 import Form from 'react-bootstrap/Form';
+//import FlowerButton from './FlowerButton';
+import Button from 'react-bootstrap/Button';
 
 /**
  * Need to check if the component works, if no data is saved currently for today
@@ -11,8 +12,8 @@ import Form from 'react-bootstrap/Form';
 
 function DailyFlower(){
     const current = new Date();
-    const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-
+    //const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+    const date = `${0 + current.getDate().slide(-2)}/${0 + current.getMonth()+1}/${current.getFullYear()}`;
     const [showColors,setShowColors] = useState(false);
     const [showShape,setShowShape] = useState(false);
     const [showText,setShowText] = useState(false);
@@ -20,14 +21,16 @@ function DailyFlower(){
     const [chosenWidth,setChosenWidth] = useState(100);
     const [chosenHeight,setChosenHeight] = useState(100);
     const [chosenRotation,setChosenRotation] = useState(0);
-    const [chosenText,setChosenText] = useState();
-    
+    const [chosenText,setChosenText] = useState("");
+    const [showSave,setShowSave] = useState(false);
+    //const flowerButtons = ["Color","Shape","Text","Save"];
+    //const buttonsArr = flowerButtons.map((e)=>{<FlowerButton name={e}/>})
     /**
      * This useEffect get the current flower of today saved in localStorage
      */
     useEffect(()=>{
         let todaysFlower = localStorage.getItem(date);
-        if(todaysFlower!=='undefined'){
+        if(todaysFlower!==null){
             let petalData = todaysFlower.split('%');
             setChosenColor(petalData[0]);
             setChosenHeight(petalData[1]);
@@ -41,23 +44,31 @@ function DailyFlower(){
         setShowColors(!showColors);
         setShowShape(false);
         setShowText(false);
+        setShowSave(false);
     }
     function handleShape(){
         setShowShape(!showShape);
         setShowColors(false);
         setShowText(false);
+        setShowSave(false);
     }
     function handleText(){
         setShowText(!showText);
         setShowColors(false);
         setShowShape(false);
+        setShowSave(false);
     }
+
     function handleChangeComplete(color){
         let c = color.rgb;
         let colorString = `rgb(${c.r},${c.g},${c.b},${c.a})`;
         setChosenColor(colorString);
     }
     function handleSave(){
+        setShowSave(!showSave);
+        setShowShape(false);
+        setShowText(false);
+        setShowColors(false);
         console.log("petal saved");
         localStorage.setItem(`${date}`,`${chosenColor}%${chosenHeight}%${chosenRotation}%${chosenWidth}%${chosenText}`);
     }
@@ -84,7 +95,7 @@ function DailyFlower(){
     const buttons = {
         marginBottom:"50px",
     }
-    const button = {
+     const button = {
         marginLeft:"20px",
         border:"none",
         padding:"10px",
@@ -141,8 +152,11 @@ function DailyFlower(){
             </Form.Group>
             </Form>
             </div>
-            
             : <></>}
+            {showSave?
+            <p>Saved!</p>
+            :
+            <></>}
             </section>
         </section>
         <section style={subcontainer}>
