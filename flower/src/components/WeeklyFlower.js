@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Circle from './Circle';
+import Petal from './Petal';
 /**
  * each slice of the flower is 51.4285714286 degrees
  */
@@ -7,57 +8,76 @@ import Circle from './Circle';
 function WeeklyFlower(){
     const [currentWeek,setCurrentWeek] = useState([]); // array of keys corresponding to dates within current week
     const [petals,setPetals] = useState([]);
-    const [petalsFetched,setPetalsFetched] = useState(false);
+    //const [petalsFetched,setPetalsFetched] = useState(false);
     const container = {
         display:"flex",
         flexDirection:"column",
         justifyContent:"center",
         alignItems:"center",
-        height:"500px",
-        padding:"20px",
+        height:"600px",
+        paddingBottom:"80px",
     }
 
+    /**
+     * Loads all data from localStorage and sets state to array of strings.
+     */
     useEffect(()=>{
-        fetchPetals().then(()=>{
-            console.log("petals are: ",petals);
+        fetchPetals().then((e)=>{
+            console.log("state when loading Weekly flower: ",petals);
         });
     },[]);
-
-    function getThisWeek(){
+  
+    /**
+     * Calculates the current week
+     */
+    async function getThisWeek(){
         let curr = new Date();
         let week = [];
         for (let i = 1; i <= 7; i++) {
             let first = curr.getDate() - curr.getDay() + i;
             let day = new Date(curr.setDate(first)).toLocaleDateString();
-            week.push(day);
+            week.push(day);  
         }
         setCurrentWeek(week);
-        console.log("current week is: ",currentWeek);
+        //console.log("current week is: ",currentWeek);
     }
 
+
     async function fetchPetals(){
-        getThisWeek();
-        let petals = [];
-        currentWeek.forEach(e => {
-            console.log("key is: ",e);
-            let petal = localStorage.getItem(e);
-            console.log("petal is: ",petal);
-            petals.push(petal);
-        });
-        //console.log(petals);
-    }
+        getThisWeek().then((e)=>{
+            let petalsarr = [];
+            currentWeek.forEach(e => {
+                //console.log("key is: ",e);
+                let petal = localStorage.getItem(e);
+                let splitPetal;
+                if(petal !==null){
+                    splitPetal = petal.split('%');
+                }
+                //console.log("petal is: ",petal);
+                petalsarr.push(splitPetal); 
+                //console.log(".then() gave this: ", e);
+            });
+            console.log(petalsarr);
+            setPetals(petalsarr); // IMPORTANT
+        })
+    } 
     
-    return(
+    return( 
     <div style={container}>
-        <p>WeeklyFlower</p>
-        <Circle zIndex={"0"} width={"300px"} height={"300px"}/>
-        <Circle marginBottom={"24%"} marginLeft={"20%"} zIndex={"10"} width={"30px"} height={"30px"}/>
-        <Circle marginLeft={"30%"} zIndex={"10"} width={"30px"} height={"30px"}/>
-        <Circle marginTop={"20%"} marginLeft={"23%"} zIndex={"10"} width={"30px"} height={"30px"}/>
-        <Circle marginTop={"31%"}  zIndex={"10"} width={"30px"} height={"30px"}/>
-        <Circle marginTop={"22%"} marginRight={"22%"} zIndex={"10"} width={"30px"} height={"30px"}/>
-        <Circle marginRight={"31%"} zIndex={"10"} width={"30px"} height={"30px"}/>
-        <Circle marginRight={"20%"} marginBottom={"24%"} zIndex={"10"} width={"30px"} height={"30px"}/>
+        
+        <p></p>
+        
+        <Circle /* color={"grey"} */hasPetal={false} marginTop={"0%"} zIndex={"0"} width={"300"} height={"300"}/>
+        <Circle hasPetal={true} petalColor={"purple"} marginBottom={"20%"} marginLeft={"8%"} zIndex={"10"} width={"10"} height={"10"}/>
+        <Circle hasPetal={true} petalColor={"red"} marginRight={"8%"} marginBottom={"20%"} zIndex={"10"} width={"50"} height={"50"}/>
+
+        <Circle hasPetal={true} petalColor={"blue"} marginLeft={"17%"} marginBottom={"8%"} zIndex={"10"} width={"100"} height={"100"}/>
+        
+        <Circle hasPetal={true} petalColor={"blue"} marginTop={"7%"} marginLeft={"12%"} zIndex={"10"} width={"10"} height={"10"}/>
+        <Circle hasPetal={true} petalColor={"blue"} marginTop={"12%"} zIndex={"10"} width={"10"} height={"10"}/>
+        <Circle hasPetal={true} petalColor={"purple"} marginTop={"7%"} marginRight={"12%"} zIndex={"10"} width={"40"} height={"80"}/>
+
+        <Circle hasPetal={true} petalColor={"purple"} marginRight={"17%"} marginBottom={"8%"}zIndex={"10"} width={"80"} height={"50"}/>
     </div>
     );
 }

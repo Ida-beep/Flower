@@ -94,20 +94,23 @@ function DailyFlower(){
         display:"flex",
         flexDirection:"row",
         justifyContent:"center",
-        alignItems:"center",
+        //alignContent:"center",
         width:"100%",
-        height:"500px",
-        paddingBottom:"50px",
+        height:"600px",
+        paddingBottom:"80px",
     }
     const subcontainer = {
         display:"flex",
-        justifyItems:"center",
+        justifyContent:"center",
+        alignItems:"center",
         width:"30%",
-        marginLeft:"50px",
+        marginLeft:"100px",
     }
     const leftsubcontainer = {
         display:"flex",
         flexDirection:"column",
+        justifyContent:"center",
+        alignItems:"center",
         width:"30%",
     }
     const buttons = {
@@ -117,8 +120,8 @@ function DailyFlower(){
         marginLeft:"20px",
         border:"none",
         padding:"10px",
-        borderRadius:"27%",
-        backgroundColor:"rgb(50,0,150,0.2)",
+        borderRadius:"12%",
+        backgroundColor:"rgb(50,0,170,0.2)",
     }
     const tools = {
         display:"flex",

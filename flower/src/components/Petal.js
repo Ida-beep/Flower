@@ -13,10 +13,13 @@ function Petal(props){
         transform:"scale(3)",
         background: props.color,
         background: `linear-gradient(${-props.rotation}deg, ${props.color} 0%, rgba(255,255,255,1) 100%)`,
+        position:"absolute",
+        zIndex:props.zIndex,
+        opacity:"50%",
     }
     
     return(
-    <div style={petalStyle}></div>
+    <div style={petalStyle}>{props.text}</div>
     );
 }
 
