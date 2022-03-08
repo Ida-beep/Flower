@@ -115,12 +115,19 @@ function DailyFlower(){
     }
     const buttons = {
         marginBottom:"50px",
+        display:"flex",
+        flexDirection:"row",
+    }
+    const buttonContainer = {
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"flex-end",
     }
      const button = {
-        marginLeft:"20px",
+        marginLeft:"40px",
         border:"none",
-        padding:"10px",
-        borderRadius:"12%",
+        padding:"15px",
+        borderRadius:"50%",
         backgroundColor:"rgb(50,0,170,0.2)",
     }
     const tools = {
@@ -134,10 +141,22 @@ function DailyFlower(){
         <div style={container}>
         <section style={leftsubcontainer}>
             <section style={buttons}>
-                <Button style={button} onClick={handleColor}>Color</Button>
-                <Button style={button} onClick={handleShape}>Shape</Button>
-                <Button style={button} onClick={handleText}>Text</Button>
-                <Button style={button} onClick={handleSave}>Save</Button>
+                <div style={buttonContainer}>
+                    <h5>Water</h5>
+                    <Button style={button} onClick={handleColor}></Button>
+                </div>
+                <div style={buttonContainer}>
+                    <h5>Trim</h5>
+                    <Button style={button} onClick={handleShape}></Button>
+                </div>
+                <div style={buttonContainer}>
+                    <h5>Feed</h5>
+                    <Button style={button} onClick={handleText}></Button>
+                </div>
+                <div style={buttonContainer}>
+                    <h5>Seed</h5>
+                    <Button style={button} onClick={handleSave}></Button>
+                </div>
             </section>
             <section style={tools}>
             {showColors?
