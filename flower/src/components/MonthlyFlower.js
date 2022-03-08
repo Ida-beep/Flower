@@ -1,6 +1,9 @@
 import React from 'react';
 import Circle from './Circle';
-import Img from '../assets/placeholder.jpeg';
+import Img from '../assets/Skærmbillede 2022-03-08 kl. 13.50.39.png';
+import Img2 from '../assets/MicrosoftTeams-image copy 2.png';
+import Img3 from '../assets/MicrosoftTeams-image copy.png';
+import Img4 from '../assets/MicrosoftTeams-image.png'
 
 function MonthlyFlower(){
     const container = {
@@ -13,18 +16,21 @@ function MonthlyFlower(){
     }
     const week = {
         display:"flex",
-        wdith:"100%",
-        transform:"scale(0.5)",
+        width:"50%",
+        justifyContent:"center",
+        transform:"scale(0.2)",
     }
+/*     const img={
+        padd:"500px",
+    } */
 
     return(
         <div style={container}>
-        {/* <p>Monthly Flower</p> */}
         <div style={week}>
             <img src={Img} alt={"flower"}/>
-            <img src={Img} alt={"flower"}/>
-            <img src={Img} alt={"flower"}/>
-            <img src={Img} alt={"flower"}/>
+            <img src={Img2} alt={"flower"}/>
+            <img src={Img3} alt={"flower"}/>
+            <img src={Img4} alt={"flower"}/>
 {/*             <Circle color={"grey"}hasPetal={false} marginTop={"0%"} zIndex={"0"} width={"300px"} height={"300px"}/>
             <Circle hasPetal={true} marginBottom={"20%"} marginLeft={"15%"} zIndex={"10"} width={"30px"} height={"30px"}/>
             <Circle hasPetal={true} marginRight={"15%"} marginBottom={"20%"} zIndex={"10"} width={"30px"} height={"30px"}/>

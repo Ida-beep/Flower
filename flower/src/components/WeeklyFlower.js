@@ -67,15 +67,15 @@ function WeeklyFlower(){
         
         <p></p>
         
-        <Circle /* color={"grey"} */hasPetal={false} marginTop={"0%"} zIndex={"0"} width={"300"} height={"300"}/>
-        <Circle hasPetal={true} petalColor={"purple"} marginBottom={"20%"} marginLeft={"8%"} zIndex={"10"} width={"10"} height={"10"}/>
+        <Circle /* color={"grey"} */hasPetal={false} marginTop={"0%"} zIndex={"0"} width={"50"} height={"50"}/>
+        <Circle hasPetal={true} petalColor={"purple"} marginBottom={"20%"} marginLeft={"8%"} zIndex={"10"} width={"70"} height={"100"}/>
         <Circle hasPetal={true} petalColor={"red"} marginRight={"8%"} marginBottom={"20%"} zIndex={"10"} width={"50"} height={"50"}/>
 
         <Circle hasPetal={true} petalColor={"blue"} marginLeft={"17%"} marginBottom={"8%"} zIndex={"10"} width={"100"} height={"100"}/>
         
-        <Circle hasPetal={true} petalColor={"blue"} marginTop={"7%"} marginLeft={"12%"} zIndex={"10"} width={"10"} height={"10"}/>
+        <Circle hasPetal={true} petalColor={"blue"} marginTop={"7%"} marginLeft={"12%"} zIndex={"10"} width={"50"} height={"50"}/>
         <Circle hasPetal={true} petalColor={"blue"} marginTop={"12%"} zIndex={"10"} width={"10"} height={"10"}/>
-        <Circle hasPetal={true} petalColor={"purple"} marginTop={"7%"} marginRight={"12%"} zIndex={"10"} width={"40"} height={"80"}/>
+        <Circle hasPetal={true} petalColor={"purple"} marginTop={"7%"} marginRight={"12%"} zIndex={"10"} width={"100"} height={"100"}/>
 
         <Circle hasPetal={true} petalColor={"purple"} marginRight={"17%"} marginBottom={"8%"}zIndex={"10"} width={"80"} height={"50"}/>
     </div>
