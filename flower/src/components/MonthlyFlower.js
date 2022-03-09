@@ -20,17 +20,29 @@ function MonthlyFlower(){
         justifyContent:"center",
         transform:"scale(0.2)",
     }
+    /* const rotate = {
+        transform:"rotate(5deg)",
+    } */
 /*     const img={
         padd:"500px",
     } */
+    const title = {
+        marginBottom:"400px",
+        zIndex:"100",
+        position:"absolute",
+        fontSize:"15px",
+        fontStyle:"italic",
+        color:"grey",
+    }
 
     return(
         <div style={container}>
+            <p style={title} >Monthly Garden</p>
         <div style={week}>
             <img src={Img} alt={"flower"}/>
             <img src={Img2} alt={"flower"}/>
             <img src={Img3} alt={"flower"}/>
-            <img src={Img4} alt={"flower"}/>
+            <img /* style={rotate} */src={Img4} alt={"flower"}/>
 {/*             <Circle color={"grey"}hasPetal={false} marginTop={"0%"} zIndex={"0"} width={"300px"} height={"300px"}/>
             <Circle hasPetal={true} marginBottom={"20%"} marginLeft={"15%"} zIndex={"10"} width={"30px"} height={"30px"}/>
             <Circle hasPetal={true} marginRight={"15%"} marginBottom={"20%"} zIndex={"10"} width={"30px"} height={"30px"}/>

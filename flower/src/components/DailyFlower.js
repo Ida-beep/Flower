@@ -97,7 +97,8 @@ function DailyFlower(){
         //alignContent:"center",
         width:"100%",
         height:"600px",
-        paddingBottom:"80px",
+        //paddingBottom:"80px",
+        paddingTop:"88px",
     }
     const subcontainer = {
         display:"flex",
@@ -136,9 +137,20 @@ function DailyFlower(){
         alignItems:"center",
         height:"300px",
     }
+    const title = {
+        marginBottom:"390px",
+        zIndex:"100",
+        position:"absolute",
+        fontWeight:"20",
+        fontSize:"15px",
+        fontStyle:"italic",
+        //fontFamily: "'Pacifico', cursive",
+        color:"grey",
+    }
 
     return(
         <div style={container}>
+            <p style={title} >Daily Petal</p>
         <section style={leftsubcontainer}>
             <section style={buttons}>
                 <div style={buttonContainer}>

@@ -61,20 +61,29 @@ function WeeklyFlower(){
             setPetals(petalsarr); // IMPORTANT
         })
     } 
+
+    const title = {
+        marginBottom:"400px",
+        zIndex:"100",
+        position:"absolute",
+        fontSize:"15px",
+        fontStyle:"italic",
+        color:"grey",
+    }
     
     return( 
     <div style={container}>
-        
+         <p style={title} >Weekly Flower</p>
         <p></p>
         
         <Circle /* color={"grey"} */hasPetal={false} marginTop={"0%"} zIndex={"0"} width={"50"} height={"50"}/>
-        <Circle hasPetal={true} petalColor={"purple"} marginBottom={"20%"} marginLeft={"8%"} zIndex={"10"} width={"70"} height={"100"}/>
-        <Circle hasPetal={true} petalColor={"red"} marginRight={"8%"} marginBottom={"20%"} zIndex={"10"} width={"50"} height={"50"}/>
+        <Circle hasPetal={true} petalColor={"purple"} marginBottom={"20%"} marginLeft={"8%"} zIndex={"10"} width={"30"} height={"30"}/>
+        <Circle hasPetal={true} petalColor={"red"} marginRight={"8%"} marginBottom={"20%"} zIndex={"10"} width={"20"} height={"20"}/>
 
-        <Circle hasPetal={true} petalColor={"blue"} marginLeft={"17%"} marginBottom={"8%"} zIndex={"10"} width={"100"} height={"100"}/>
+        <Circle hasPetal={true} petalColor={"blue"} marginLeft={"17%"} marginBottom={"8%"} zIndex={"10"} width={"90"} height={"90"}/>
         
-        <Circle hasPetal={true} petalColor={"blue"} marginTop={"7%"} marginLeft={"12%"} zIndex={"10"} width={"50"} height={"50"}/>
-        <Circle hasPetal={true} petalColor={"blue"} marginTop={"12%"} zIndex={"10"} width={"10"} height={"10"}/>
+        <Circle hasPetal={true} petalColor={"blue"} marginTop={"7%"} marginLeft={"12%"} zIndex={"10"} width={"70"} height={"70"}/>
+        <Circle hasPetal={true} petalColor={"blue"} marginTop={"12%"} zIndex={"10"} width={"100"} height={"100"}/>
         <Circle hasPetal={true} petalColor={"purple"} marginTop={"7%"} marginRight={"12%"} zIndex={"10"} width={"100"} height={"100"}/>
 
         <Circle hasPetal={true} petalColor={"purple"} marginRight={"17%"} marginBottom={"8%"}zIndex={"10"} width={"80"} height={"50"}/>
